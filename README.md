@@ -1,1 +1,1 @@
-# Teffarom-learnings
+# Terraform-learnings
