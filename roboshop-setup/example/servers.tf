@@ -88,11 +88,11 @@ resource "aws_instance" "redis" {
   }
 }
 
-resource "aws_instance" "dispach" {
+resource "aws_instance" "dispatch" {
   ami                    = "ami-0089b8e98cd95257d"
   instance_type          = "t3.micro"
   vpc_security_group_ids = ["sg-0e978024c0690d6a4"]
   tags = {
-    Name = "dispach"
+    Name = "dispatch"
   }
 }
