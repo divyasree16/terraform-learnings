@@ -5,10 +5,12 @@ data "aws_ami" "ami" {
 }
 
 resource "aws_instance" "frontend" {
-  count                  = 5
+  count                  = length(var.instances)
   ami                    = data.aws_ami.ami.image_id
   instance_type          = "t3.micro"
   vpc_security_group_ids = ["sg-0e978024c0690d6a4"]
 }
 
-
+variable "instances" {
+  default = [ "user", "cart", "catalogue", "shipping", "payment"]
+}
