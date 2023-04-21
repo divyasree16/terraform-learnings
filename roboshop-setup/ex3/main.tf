@@ -34,5 +34,5 @@ variable "instances" {
 
 #to get output of public ip for all the instances run below code using loops
 output "ec2" {
-  value = [for k, v in aws_instance.instances : v.public_ip]
+  value = [for k, v in aws_instance.instances : "${k} - ${v.public_ip}"]
 }
