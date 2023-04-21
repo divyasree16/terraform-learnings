@@ -9,6 +9,9 @@ resource "aws_instance" "instances" {
   ami                    = data.aws_ami.ami.image_id
   instance_type          = each.value["type"]
   vpc_security_group_ids = ["sg-0e978024c0690d6a4"]
+  tags = {
+    Name = each.value["name"]
+  }
 }
 
 variable "instances" {
