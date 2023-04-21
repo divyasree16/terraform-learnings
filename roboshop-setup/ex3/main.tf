@@ -27,6 +27,12 @@ variable "instances" {
   }
 }
 
+//to get output of catalogue public ip. run below code
+//output "ec2" {
+//value = aws_instance.instances ["catalogue"].public_ip
+//}
+
+#to get output of public ip for all the instances run below code using loops
 output "ec2" {
-  value = aws_instance.instances ["catalogue"].public_ip
+  value = [for k, v in aws_instance.instances : v.public_ip]
 }
