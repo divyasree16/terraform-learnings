@@ -18,10 +18,11 @@ resource "aws_route53_record" "frontend" {
   name    = "${var.component}-dev.devops161997.online"
   type    = "A"
   ttl     = 30
-  records = [aws_instance.ec2.private_ip]
+  records = ["aws_instance.ec2.private_ip"]
 }
 
 variable "component" {}
 variable "instance_type" {}
+
 
 
