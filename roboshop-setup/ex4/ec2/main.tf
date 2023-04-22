@@ -13,12 +13,12 @@ resource "aws_instance" "ec2" {
   }
 }
 
-resource "aws_route53_record" "frontend" {
+resource "aws_route53_record" "record" {
   zone_id = "Z039916038KM3J6GJYRJC"
   name    = "${var.component}-dev.devops161997.online"
   type    = "A"
   ttl     = 30
-  records = ["aws_instance.ec2.private_ip"]
+  records = [aws_instance.ec2.private_ip]
 }
 
 variable "component" {}
